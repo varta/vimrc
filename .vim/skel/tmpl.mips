@@ -1,0 +1,41 @@
+#####################################################################
+#
+# <Program name>
+#
+# Description: <Short description of what the program does>
+#
+#####################################################################
+#
+# Input: <Which input is expected>
+# Output: <Which output is produced>
+#
+# Register usage:
+# <Explanation of register usage, e.g. which registers are used to
+# store various data>
+#
+#####################################################################
+#
+# Pseudo code description:
+# <pseudo code that details the logical structure of the program>
+#
+#####################################################################
+#
+# vim:syntax=mips
+#
+#####################################################################
+
+###################### Data Segment #################################
+
+
+	.data
+# < Here be declarations >
+
+
+###################### Code Segment #################################
+
+	.text
+	.globl main
+main:
+
+# < Here be instructions >
+
