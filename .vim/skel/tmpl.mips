@@ -26,6 +26,11 @@
 
 ###################### Data Segment #################################
 
+    # Note: only works with mpp preprocessor!
+    .macro exit
+            li      $v0, 10
+            syscall
+    .endmacro
 
 	.data
 # < Here be declarations >

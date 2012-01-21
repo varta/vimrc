@@ -116,6 +116,9 @@ syntax match mipsDirective "\.type"
 syntax match mipsDirective "\.verstamp"
 syntax match mipsDirective "\.weakext"
 syntax match mipsDirective "\.word"
+" MPP
+syntax match mipsDirective "\.macro"
+syntax match mipsDirective "\.endmacro"
 
 " Arithmetic and Logical Instructions
 syntax keyword mipsInstruction abs
@@ -239,6 +242,9 @@ syntax keyword mipsInstruction eret
 syntax keyword mipsInstruction syscall
 syntax keyword mipsInstruction break
 syntax keyword mipsInstruction nop
+
+" Commonly used MPP macro
+syntax keyword mipsInstruction exit
 
 hi def link mipsComment        Comment
 hi def link mipsNumber         Number
