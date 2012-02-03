@@ -243,8 +243,20 @@ syntax keyword mipsInstruction syscall
 syntax keyword mipsInstruction break
 syntax keyword mipsInstruction nop
 
-" Commonly used MPP macro
-syntax keyword mipsInstruction exit
+" Commonly used MPP macros -- SeySayux
+syntax keyword mipsInstruction exit push pop
+
+" Macro args -- SeySayux
+syntax match mipsRegister "@0" 
+syntax match mipsRegister "@1" 
+syntax match mipsRegister "@2"
+syntax match mipsRegister "@3" 
+syntax match mipsRegister "@4" 
+syntax match mipsRegister "@5" 
+syntax match mipsRegister "@6" 
+syntax match mipsRegister "@7" 
+syntax match mipsRegister "@8" 
+syntax match mipsRegister "@9"
 
 hi def link mipsComment        Comment
 hi def link mipsNumber         Number

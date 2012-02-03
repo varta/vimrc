@@ -32,6 +32,16 @@
             syscall
     .endmacro
 
+    .macro push
+            addi    $sp, -4
+            sw      @0, ($sp)
+    .endmacro
+
+    .macro pop
+            lw      @0, ($sp)
+            addi    $sp, 4
+    .endmacro
+
 	.data
 # < Here be declarations >
 
