@@ -24,7 +24,7 @@
 #
 #####################################################################
 
-###################### Data Segment #################################
+###################### Macro Segment #################################
 
     # Note: only works with mpp preprocessor!
     .macro exit
@@ -41,6 +41,26 @@
             lw      @0, ($sp)
             addi    $sp, 4
     .endmacro
+
+    .macro call
+            sw      $fp, -4($sp)
+            move    $fp, $sp
+
+            addi    $sp, -8
+            sw      $ra, ($sp)
+
+            jal     @0
+
+            lw      $ra, ($sp)
+            lw      $fp, 4($sp)
+            addi    $sp, 8
+    .endmacro
+
+    .macro ret
+            jr      $ra
+    .endmacro
+
+###################### Data Segment #################################
 
 	.data
 # < Here be declarations >

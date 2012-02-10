@@ -67,7 +67,7 @@ syntax match mipsDirective "\.4byte"
 syntax match mipsDirective "\.8byte"
 syntax match mipsDirective "\.aent"
 syntax match mipsDirective "\.align"
-syntax match mipsDirective "\.aascii"
+syntax match mipsDirective "\.ascii"
 syntax match mipsDirective "\.asciiz"
 syntax match mipsDirective "\.byte"
 syntax match mipsDirective "\.comm"
@@ -116,7 +116,7 @@ syntax match mipsDirective "\.type"
 syntax match mipsDirective "\.verstamp"
 syntax match mipsDirective "\.weakext"
 syntax match mipsDirective "\.word"
-" MPP
+" MPP -- SeySayux
 syntax match mipsDirective "\.macro"
 syntax match mipsDirective "\.endmacro"
 
@@ -244,7 +244,7 @@ syntax keyword mipsInstruction break
 syntax keyword mipsInstruction nop
 
 " Commonly used MPP macros -- SeySayux
-syntax keyword mipsInstruction exit push pop
+syntax keyword mipsInstruction exit push pop call ret setfp resetfp
 
 " Macro args -- SeySayux
 syntax match mipsRegister "@0" 
