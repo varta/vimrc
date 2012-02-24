@@ -126,6 +126,7 @@ endfunction
 function <SID>CarriageReturn(ochar,cchar) " ---{{{2
     let line = getline('.')
     let col = col('.') - 2
+    let end = col('$') - 2
     "echom string(col).':'.line[:(col)].'|'.line[(col+1):]
     if a:ochar == line[(col)] && a:cchar == line[(col+1)] "&& strlen(line) - (col) == 2
         "echom string(s:closeStack)
@@ -133,8 +134,11 @@ function <SID>CarriageReturn(ochar,cchar) " ---{{{2
             call remove(s:closeStack, 0)
         endwhile
         return "\<esc>a\<CR>;\<CR>".a:cchar."\<esc>\"_xk$\"_xa"
+    elseif line[(end)] == '\'
+        return "\<ESC>o\\\<ESC>i"
+    else
+        return "\<CR>"
     endif
-    return "\<CR>"
 endfunction
 
 
