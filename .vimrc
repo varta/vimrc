@@ -6,6 +6,7 @@ set tw=80
 syntax on
 set formatoptions+=r
 set cinoptions=:0g0
+set bs=2
 filetype plugin on
 
 set colorcolumn=+1
