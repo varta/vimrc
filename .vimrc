@@ -10,8 +10,10 @@ set bs=2
 set term=builtin_ansi
 filetype plugin on
 
+if version >= 730
 set colorcolumn=+1
 highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+endif
 
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 au BufNewFile,BufRead *.mips set syntax=mips
