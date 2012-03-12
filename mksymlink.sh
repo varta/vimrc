@@ -52,4 +52,8 @@ else
     else
         echo "I could not detect your package manager."
     fi
+
+    if [ $? -ne 0 ]; then
+        echo "Could not install package, disabling astyle." >&2
+    fi
 fi
