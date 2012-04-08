@@ -6,18 +6,9 @@ echo "Copying from $dir..."
 for x in "$HOME" "$USERPROFILE"; do
     echo "Entering $x..."
     
-    if [ -e "_vim" ]; then
-        echo -n "Remove \`_vim'? (Y/n) "
-        read answer
-        case answer in
-        n|N)
-            ;;
-        *)
-            rm -rf _vim
-            cp -friv "$dir/.vim" _vim
-            ;;
-        esac
-    fi
+    echo "Removing \`_vim'"
+    rm -rf _vim
+    cp -fri "$dir/.vim" _vim
     cp -fiv "$dir/.vimrc" _vimrc
     cp -fiv "$dir/.gvimrc" _gvimrc
 done
