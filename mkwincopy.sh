@@ -5,10 +5,12 @@ echo "Copying from $dir..."
 
 for x in "$HOME" "$USERPROFILE"; do
     echo "Entering $x..."
+    cd $x
     
-    echo "Removing \`_vim'"
-    rm -rf _vim
-    cp -fri "$dir/.vim" _vim
+    echo "Removing \`vimfiles'"
+    rm -rf _vim # Clean up from old scripts
+    rm -rf vimfiles
+    cp -fri "$dir/.vim" vimfiles
     cp -fiv "$dir/.vimrc" _vimrc
     cp -fiv "$dir/.gvimrc" _gvimrc
 done
