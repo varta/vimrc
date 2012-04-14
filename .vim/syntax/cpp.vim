@@ -11,3 +11,10 @@ syn keyword cppStatement newgc deletegc thisapp
 syn keyword cppOperator over
 syn keyword cppExceptions sthrow
 syn keyword cConstant SYLPH_BEGIN_NAMESPACE SYLPH_END_NAMESPACE
+
+" Constants and member variables
+syn match cConstant /\<k[A-Z]\w\+/
+syn match cppMember /\<m[A-Z]\w\+/
+syn match cppGlobal /\<g[A-Z]\w\+/
+hi def link cppMember Identifier
+hi def link cppGlobal WarningMsg " Adequate class for globals, don't you think?
