@@ -8,6 +8,7 @@ endif
 " highlight LineNr term=underline ctermfg=6 guifg=#888888 guibg=#E6E6E6
 
 " MacVim color scheme everywhere!
+colors default " Hack required for macvim scheme to work
 colors macvim
 
 if version >= 703
