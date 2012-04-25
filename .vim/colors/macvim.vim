@@ -67,56 +67,29 @@ hi Special      gui=NONE guifg=BlueViolet guibg=NONE
 hi String       gui=NONE guifg=SkyBlue4 guibg=NONE
 hi Underlined   gui=underline guifg=SteelBlue1
 
-
-"
-" Groups that differ between 'light' and 'dark' background.
-"
-
-if &background == "dark"
-  hi Boolean      gui=NONE guifg=DeepPink4 guibg=NONE
-  hi Comment      gui=italic guifg=CadetBlue3
-  hi Constant     gui=NONE guifg=Goldenrod1 guibg=NONE
-  hi Cursor       guibg=LightGoldenrod guifg=bg
-  hi CursorColumn guibg=Gray20
-  hi CursorIM     guibg=LightSlateGrey guifg=bg
-  hi CursorLine   guibg=Gray20
-  hi DiffChange   guibg=MediumPurple4
-  hi DiffDelete   gui=bold guifg=White guibg=SlateBlue
-  hi DiffText     gui=NONE guifg=White guibg=SteelBlue
-  hi LineNr       guifg=#552A7B guibg=Grey5
-  hi MatchParen   guifg=White guibg=Magenta
-  hi Normal       guifg=Grey50 guibg=Grey10
-  hi Search       guibg=Blue4 guifg=NONE
-  hi Statement    gui=bold guifg=Purple1 guibg=NONE
-  hi Todo         gui=NONE guifg=Green4 guibg=DeepSkyBlue1
-  hi Type         gui=bold guifg=Cyan4 guibg=NONE
-  hi WildMenu     guibg=SkyBlue guifg=White
-  hi lCursor      guibg=LightSlateGrey guifg=bg
+hi Boolean      gui=NONE guifg=Red3 guibg=NONE
+hi Comment      gui=italic guifg=Blue2 guibg=NONE
+hi Constant     gui=NONE guifg=DarkOrange guibg=NONE
+hi Cursor       guibg=fg guifg=bg
+hi CursorColumn guibg=#F1F5FA
+hi CursorIM     guibg=fg guifg=bg
+hi CursorLine   guibg=#F1F5FA
+hi DiffChange   guibg=DeepSkyBlue
+hi DiffDelete   gui=bold guifg=Black guibg=SlateBlue
+hi DiffText     gui=NONE guibg=Gold
+hi LineNr       guifg=#888888 guibg=#E6E6E6
+hi MatchParen   guifg=White guibg=MediumPurple1
+if has("gui_macvim")
+  hi Normal       gui=NONE guifg=MacTextColor guibg=MacTextBackgroundColor
 else
-  hi Boolean      gui=NONE guifg=Red3 guibg=NONE
-  hi Comment      gui=italic guifg=Blue2 guibg=NONE
-  hi Constant     gui=NONE guifg=DarkOrange guibg=NONE
-  hi Cursor       guibg=fg guifg=bg
-  hi CursorColumn guibg=#F1F5FA
-  hi CursorIM     guibg=fg guifg=bg
-  hi CursorLine   guibg=#F1F5FA
-  hi DiffChange   guibg=DeepSkyBlue
-  hi DiffDelete   gui=bold guifg=Black guibg=SlateBlue
-  hi DiffText     gui=NONE guibg=Gold
-  hi LineNr       guifg=#888888 guibg=#E6E6E6
-  hi MatchParen   guifg=White guibg=MediumPurple1
-  if has("gui_macvim")
-    hi Normal       gui=NONE guifg=MacTextColor guibg=MacTextBackgroundColor
-  else
-    hi Normal       gui=NONE guifg=Black guibg=White
-  endif
-  hi Search       guibg=CadetBlue1 guifg=NONE
-  hi Statement    gui=bold guifg=Maroon guibg=NONE
-  hi Todo         gui=NONE guifg=DarkGreen guibg=PaleGreen1
-  hi Type         gui=bold guifg=Green4 guibg=NONE
-  hi WildMenu     guibg=SkyBlue guifg=Black
-  hi lCursor      guibg=fg guifg=bg
+  hi Normal       gui=NONE guifg=Black guibg=White
 endif
+hi Search       guibg=CadetBlue1 guifg=NONE
+hi Statement    gui=bold guifg=Maroon guibg=NONE
+hi Todo         gui=NONE guifg=DarkGreen guibg=PaleGreen1
+hi Type         gui=bold guifg=Green4 guibg=NONE
+hi WildMenu     guibg=SkyBlue guifg=Black
+hi lCursor      guibg=fg guifg=bg
 
 
 "
