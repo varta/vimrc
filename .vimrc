@@ -17,6 +17,9 @@ endif
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 au BufNewFile,BufRead *.mips set syntax=mips
 
+" Always use LaTeX for .tex files
+let g:tex_flavor='latex'
+
 nnoremap <D-i> gg=G
 inoremap <D-i> <Esc>gg=Gi
 vnoremap <D-i> =

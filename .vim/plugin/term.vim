@@ -11,6 +11,6 @@ endif
 " Linux/Unix/etc...
 if has("unix") && !has("macunix") && !has("win32unix")
     if executable("konsole")
-        commmand! Term silent !konsole --workdir $(pwd)
+        command! Term silent !konsole --workdir $(pwd)
     endif
 endif
