@@ -7,6 +7,7 @@ syntax on
 set formatoptions+=r
 set cinoptions=:0g0
 set bs=2
+set mouse=a
 filetype plugin on
 
 " Only on cygwin and Windows
