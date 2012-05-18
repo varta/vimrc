@@ -8,6 +8,8 @@
 " a .vimrc file is found later.  Thus don't use line continuation and use
 " <special> in mappings.
 
+if has("gui_running")
+
 nnoremap <special> <D-n> :confirm enew<CR>
 vmap <special> <D-n> <Esc><D-n>gv
 imap <special> <D-n> <C-O><D-n>
@@ -73,3 +75,5 @@ vmap <special> <D-g> <Esc><D-g>
 imap <special> <D-g> <C-O><D-g>
 cmap <special> <D-g> <C-C><D-g>
 omap <special> <D-g> <Esc><D-g>
+
+endif
