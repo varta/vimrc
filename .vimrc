@@ -9,6 +9,7 @@ set cinoptions=:0g0
 set bs=2
 set mouse=a
 set nobackup
+set ruler
 set clipboard=unnamed
 filetype plugin on
 
