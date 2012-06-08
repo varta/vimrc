@@ -20,6 +20,7 @@ endif
 
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 au BufNewFile,BufRead *.mips set syntax=mips
+au BufNewFile,BufRead *.cpp set syntax=cpp11
 
 " Always use LaTeX for .tex files
 let g:tex_flavor='latex'
