@@ -11,6 +11,7 @@ set mouse=a
 set nobackup
 set ruler
 set clipboard=unnamed
+set encoding=utf-8
 filetype plugin on
 
 " Only on cygwin and Windows
