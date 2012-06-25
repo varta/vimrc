@@ -29,3 +29,7 @@ let g:tex_flavor='latex'
 nnoremap <D-i> gg=G
 inoremap <D-i> <Esc>gg=Gi
 vnoremap <D-i> =
+
+" Eclim
+nnoremap <C-Space> <C-x><C-u>
+inoremap <C-Space> <C-x><C-u>
