@@ -134,8 +134,6 @@ function <SID>CarriageReturn(ochar,cchar) " ---{{{2
             call remove(s:closeStack, 0)
         endwhile
         return "\<esc>a\<CR>;\<CR>".a:cchar."\<esc>\"_xk$\"_xa"
-    elseif line[(end)] == '\'
-        return "\<ESC>o\\\<ESC>i"
     else
         return "\<CR>"
     endif
