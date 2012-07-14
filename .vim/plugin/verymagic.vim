@@ -35,10 +35,10 @@ call Cabbrev('%s%', '%s%\v')
 
 call Cabbrev('/',   '/\v')
 
-call Cabbrev("'<,'>s/", "'<,'>s/\v")
-call Cabbrev("'<,'>s#", "'<,'>s#\v")
-call Cabbrev("'<,'>s@", "'<,'>s@\v")
-call Cabbrev("'<,'>s!", "'<,'>s!\v")
+call Cabbrev("'<,'>s/", "'<,'>s/\\v")
+call Cabbrev("'<,'>s#", "'<,'>s#\\v")
+call Cabbrev("'<,'>s@", "'<,'>s@\\v")
+call Cabbrev("'<,'>s!", "'<,'>s!\\v")
 
 nnoremap /        /\v
 nnoremap ?        ?\v

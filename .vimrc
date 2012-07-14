@@ -30,6 +30,6 @@ nnoremap <D-i> gg=G
 inoremap <D-i> <Esc>gg=Gi
 vnoremap <D-i> =
 
-" Eclim
+" Autocompletion
 nnoremap <C-Space> <C-x><C-u>
 inoremap <C-Space> <C-x><C-u>
