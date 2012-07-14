@@ -1,6 +1,8 @@
 set smartindent
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
+set smarttab
 set expandtab
 set tw=80
 syntax on
@@ -13,6 +15,7 @@ set ruler
 set clipboard=unnamed
 set encoding=utf-8
 filetype plugin on
+filetype plugin indent on
 
 " Only on cygwin and Windows
 if has("win32") || has("win32unix")
