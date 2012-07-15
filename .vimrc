@@ -17,6 +17,8 @@ set encoding=utf-8
 filetype plugin on
 filetype plugin indent on
 
+let g:lisp_rainbow=1
+
 " Only on cygwin and Windows
 if has("win32") || has("win32unix")
     set term=builtin_ansi
