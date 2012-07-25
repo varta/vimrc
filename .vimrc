@@ -15,12 +15,13 @@ set nobackup
 set ruler
 set clipboard=unnamed
 set encoding=utf-8
+set spell spelllang=en_us
 filetype plugin on
 filetype plugin indent on
 
 let g:lisp_rainbow=1
 
-" Only on cygwin and Windows
+" Only on Cygwin and Windows
 if has("win32") || has("win32unix")
     set term=builtin_ansi
 endif
@@ -36,6 +37,6 @@ nnoremap <D-i> gg=G
 inoremap <D-i> <Esc>gg=Gi
 vnoremap <D-i> =
 
-" Autocompletion
+" Auto completion
 nnoremap <C-Space> <C-x><C-u>
 inoremap <C-Space> <C-x><C-u>
