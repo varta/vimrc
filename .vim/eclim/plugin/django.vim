@@ -1,11 +1,11 @@
 " Author:  Eric Van Dewoestine
 "
 " Description: {{{
-"   Setup for eclim's vimplugin (gvim in eclipse) support.
+"   see http://eclim.org/vim/python/django/manage.html
 "
 " License:
 "
-" Copyright (C) 2011 - 2012  Eric Van Dewoestine
+" Copyright (C) 2005 - 2009  Eric Van Dewoestine
 "
 " This program is free software: you can redistribute it and/or modify
 " it under the terms of the GNU General Public License as published by
@@ -22,16 +22,10 @@
 "
 " }}}
 
-" Auto Commands{{{
-if exists('g:vimplugin_running')
-  augroup eclim_vimplugin
-    " autocommands used to work around the fact that the "unmodified" event in
-    " vim's netbean support is commentted out for some reason.
-    autocmd BufWritePost * call eclim#vimplugin#BufferWritten()
-    autocmd CursorHold,CursorHoldI * call eclim#vimplugin#BufferModified()
-    autocmd BufWinLeave * call eclim#vimplugin#BufferClosed()
-    autocmd BufEnter * call eclim#vimplugin#BufferEnter()
-  augroup END
+" Command Declarations {{{
+if !exists(":DjangoManage")
+  command -nargs=+  -complete=customlist,eclim#python#django#manage#CommandCompleteManage
+    \ DjangoManage :call eclim#python#django#manage#Manage('<args>')
 endif
 " }}}
 
