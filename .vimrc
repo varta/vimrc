@@ -26,13 +26,18 @@ if has("win32") || has("win32unix")
     set term=builtin_ansi
 endif
 
+" Syntax stuff
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 au BufNewFile,BufRead *.mips set syntax=mips
 au BufNewFile,BufRead *.cpp set syntax=cpp11
 
+" Write as root
+cmap w!! set bt=nowrite :%!sudo tee "%"
+
 " Always use LaTeX for .tex files
 let g:tex_flavor='latex'
 
+" Auto indent
 nnoremap <D-i> gg=G
 inoremap <D-i> <Esc>gg=Gi
 vnoremap <D-i> =
