@@ -21,6 +21,9 @@ filetype plugin indent on
 
 let g:lisp_rainbow=1
 
+" Automatically change to directory of file
+autocmd BufEnter * silent! lcd %:p:h
+
 " Only on Cygwin and Windows
 if has("win32") || has("win32unix")
     set term=builtin_ansi
