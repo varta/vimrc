@@ -34,6 +34,10 @@ autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 au BufNewFile,BufRead *.mips set syntax=mips
 au BufNewFile,BufRead *.cpp set syntax=cpp11
 
+" Goto file opens in new tab
+nnoremap gf <C-w>gf
+nnoremap gF <C-w>gF
+
 " Write as root
 cmap w!! set bt=nowrite :%!sudo tee "%"
 
