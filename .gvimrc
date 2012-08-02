@@ -6,7 +6,7 @@ set cursorline
 set showtabline=2
 
 if has("win32") || has("win32unix")
-    set guifont=Lucida_Console:h10:cANSI
+    set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI,Lucida_Console:h10:cANSI
 endif
 
 if version >= 703
