@@ -116,7 +116,7 @@ endif
 
 if !exists("g:EclimHome")
   " set at build/install time.
-  let g:EclimHome = '/Applications/Eclipse.app/Contents/MacOS/plugins/org.eclim_1.7.6'
+  let g:EclimHome = '/Applications/Eclipse.app/Contents/MacOS/plugins/org.eclim_1.7.6.39-g115d572'
   if has('win32unix')
     let g:EclimHome = eclim#cygwin#CygwinPath(g:EclimHome)
   endif
@@ -139,7 +139,7 @@ if !exists("g:EclimTemplatesDisabled")
 endif
 
 if !exists('g:EclimLargeFileEnabled')
-  let g:EclimLargeFileEnabled = 1
+  let g:EclimLargeFileEnabled = 0
 endif
 if !exists('g:EclimLargeFileSize')
   let g:EclimLargeFileSize = 5
