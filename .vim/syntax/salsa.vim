@@ -17,16 +17,19 @@ syn match salsaKeyword "\$"
 syn keyword salsaType integer real number special bool string table object
 syn keyword salsaStructure function class enum
 syn keyword salsaStructure namespace
-syn keyword salsaStatement return this
-syn keyword salsaCondtional if else unless
-syn keyword salsaRepeat do while until
+syn keyword salsaStatement return this parent
+syn keyword salsaConditional if else unless
+syn keyword salsaRepeat do while until for foreach
 
 syn keyword salsaStatement cfun typeof
 syn keyword salsaBuiltin extends methods cmethods construct destruct to
+syn keyword salsaBuiltin unknown cunknown
 syn keyword salsaBuiltin instanceof
 syn keyword salsaBuiltin iden cnst map
 
-syn match salsaBuiltin "!!settypeof\|!!settypehandler\|!!setunknownhandler"
+syn match salsaBuiltin "!!settypeof\|!!settypehandler\|!!setunknownhandlerfor"
+syn match salsaBuiltin "!!setintegerconstructor\|!!setintegertype"
+syn match salsaBuiltin "!!setrealconstructor\|!!setrealtype"
 
 syn region salsaString         start=+L\="+ skip=+\\\\\|\\"+ end=+"+ contains=@Spell
 
