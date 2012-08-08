@@ -44,6 +44,9 @@ cmap w!! set bt=nowrite :%!sudo tee "%"
 " Always use LaTeX for .tex files
 let g:tex_flavor='latex'
 
+" Build project (eclim)
+noremap <D-b> <Esc>:BuildProject<CR>
+
 " Auto indent
 nnoremap <D-i> gg=G
 inoremap <D-i> <Esc>gg=Gi
