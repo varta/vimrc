@@ -16,6 +16,7 @@ set ruler
 set clipboard=unnamed
 set encoding=utf-8
 set spell spelllang=en_us
+set hlsearch
 filetype plugin on
 filetype plugin indent on
 
@@ -46,6 +47,9 @@ let g:tex_flavor='latex'
 
 " Build project (eclim)
 noremap <D-b> <Esc>:BuildProject<CR>
+
+" Map redraw screen (C-L) to also turn of search highlighting.
+nnoremap <C-l> :nohl<CR><C-l>
 
 " Auto indent
 nnoremap <D-i> gg=G
