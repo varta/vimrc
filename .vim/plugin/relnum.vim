@@ -13,4 +13,3 @@ endfunction
 nnoremap <silent> <C-B> :call ToggleLineNumbers()<CR>
 nnoremap <silent> ;b :call ToggleLineNumbers()<CR>
 inoremap <silent> <C-B> <Esc>:call ToggleLineNumbers()<CR>
-inoremap <silent> ;b <Esc>:call ToggleLineNumbers()<CR>
