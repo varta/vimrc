@@ -12,12 +12,13 @@ endif
 syntax case match
 
 syn match salsaConstant "@get\|@set\|@readonly\|@readwrite\|@property\|@weak"
+syn match salsaConstant "@once"
 syn keyword salsaConstant true false
 syn match salsaKeyword "\$"
 syn keyword salsaType integer real number special bool string table object
 syn keyword salsaStructure function class enum
 syn keyword salsaStructure namespace
-syn keyword salsaStatement return this parent
+syn keyword salsaStatement return this parent using include import
 syn keyword salsaConditional if else unless
 syn keyword salsaRepeat do while until for foreach
 
@@ -25,7 +26,7 @@ syn keyword salsaStatement cfun typeof
 syn keyword salsaBuiltin extends methods cmethods construct destruct to
 syn keyword salsaBuiltin unknown cunknown
 syn keyword salsaBuiltin instanceof
-syn keyword salsaBuiltin iden cnst map
+syn keyword salsaBuiltin iden cnst noop map
 
 syn match salsaBuiltin "!!settypeof\|!!settypehandler\|!!setunknownhandlerfor"
 syn match salsaBuiltin "!!setintegerconstructor\|!!setintegertype"
