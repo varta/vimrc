@@ -11,8 +11,9 @@ endif
 
 syntax case match
 
-syn match salsaConstant "@get\|@set\|@readonly\|@readwrite\|@property\|@weak"
-syn match salsaConstant "@once"
+syn match salsaConstant "@\w\+"
+syn match salsaNumber "\<\d\+\>"
+
 syn keyword salsaConstant true false
 syn match salsaKeyword "\$"
 syn keyword salsaType integer real number special bool string table object
@@ -31,6 +32,7 @@ syn keyword salsaBuiltin iden cnst noop map
 syn match salsaBuiltin "!!settypeof\|!!settypehandler\|!!setunknownhandlerfor"
 syn match salsaBuiltin "!!setintegerconstructor\|!!setintegertype"
 syn match salsaBuiltin "!!setrealconstructor\|!!setrealtype"
+syn match salsaBuiltin "!!returnfrom"
 
 syn region salsaString         start=+L\="+ skip=+\\\\\|\\"+ end=+"+ contains=@Spell
 
