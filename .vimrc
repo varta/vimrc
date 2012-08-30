@@ -17,6 +17,7 @@ set clipboard=unnamed
 set encoding=utf-8
 set spell spelllang=en_us
 set hlsearch
+set grepprg=grep\ -nH\ $*
 filetype plugin on
 filetype plugin indent on
 
