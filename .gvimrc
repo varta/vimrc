@@ -4,6 +4,7 @@ colors macvim
 set number
 set cursorline
 set showtabline=2
+set spell spelllang=en_us
 
 if has("win32") || has("win32unix")
     set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI,Lucida_Console:h10:cANSI
