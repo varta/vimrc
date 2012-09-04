@@ -16,6 +16,7 @@ set ruler
 set clipboard=unnamed
 set encoding=utf-8
 set hlsearch
+set incsearch
 set grepprg=grep\ -nH\ $*
 filetype plugin on
 filetype plugin indent on
