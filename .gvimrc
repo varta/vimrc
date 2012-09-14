@@ -1,7 +1,7 @@
 " MacVim color scheme everywhere!
 colors macvim
 " But make all line numbers equal.
-term=underline ctermfg=6 guifg=#888888 guibg=#E6E6E6
+hi CursorLineNr term=underline ctermfg=6 guifg=#888888 guibg=#E6E6E6
 
 set number
 set cursorline
