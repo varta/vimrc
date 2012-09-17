@@ -60,3 +60,6 @@ vnoremap <D-i> =
 " Auto completion
 nnoremap <C-Space> <C-x><C-u>
 inoremap <C-Space> <C-x><C-u>
+
+" Do not start NerdTree by default
+let g:nerdtree_tabs_open_on_gui_startup = 0

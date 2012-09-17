@@ -21,3 +21,4 @@ endif
 for f in split(glob('$VIMHOME/gvimplugin/*.vim'), '\n')
     exe 'source' f
 endfor
+
