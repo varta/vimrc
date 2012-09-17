@@ -1,4 +1,4 @@
-
+let NERDTreeWinSize = &columns * 4/10 - 1
 
 " Map NerdTree
 function! ToggleNerdTree()
