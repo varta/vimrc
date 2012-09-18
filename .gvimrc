@@ -22,3 +22,5 @@ for f in split(glob('$VIMHOME/gvimplugin/*.vim'), '\n')
     exe 'source' f
 endfor
 
+" Easier split switching
+nnoremap <Tab> <C-w>w
