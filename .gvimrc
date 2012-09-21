@@ -24,3 +24,7 @@ endfor
 
 " Easier split switching
 nnoremap <Tab> <C-w>w
+
+" NerdTree options
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
