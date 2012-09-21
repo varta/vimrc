@@ -28,3 +28,8 @@ nnoremap <Tab> <C-w>w
 " NerdTree options
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
+
+" Conque options
+let g:ConqueTerm_InsertOnEnter = 0
+let g:ConqueTerm_EscKey = ''
+

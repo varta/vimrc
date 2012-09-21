@@ -564,6 +564,7 @@ function! conque_term#set_buffer_settings(command, vim_startup_commands) "{{{
     setlocal nopaste           " conque won't work in paste mode
     setlocal buftype=nofile    " this buffer is not a file, you can't save it
     setlocal nonumber          " hide line numbers
+    setlocal colorcolumn=      " no colored columns please
     if v:version >= 703
         setlocal norelativenumber " hide relative line numbers (VIM >= 7.3)
     endif
