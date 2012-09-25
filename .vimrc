@@ -68,3 +68,5 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 command! Shell ConqueTermSplit zsh
 
 command! Make :make! | copen
+command! -nargs=1 Man ConqueTermSplit man -P "ul | cat -s" <args>
+
