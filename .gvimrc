@@ -33,3 +33,6 @@ let NERDTreeChDirMode=2
 let g:ConqueTerm_InsertOnEnter = 0
 let g:ConqueTerm_EscKey = ''
 
+command! Marked :silent !open -a Marked.app '%:p'
+
+

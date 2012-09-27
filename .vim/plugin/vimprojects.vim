@@ -28,8 +28,9 @@ fun! LoadProject(path)
 
     execute "source ".g:ProjectRoot."/.vimproject/vimrc"
 
-    execute "set rtp=".a:path .",". &rtp
+    execute "set rtp=".&rtp.",".a:path."/.vimproject"     
     echo "Project ".g:ProjectRoot." loaded!"
+
 endfun
 
 fun! FindAndLoadProject() 
