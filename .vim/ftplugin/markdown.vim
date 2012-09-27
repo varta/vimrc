@@ -19,19 +19,22 @@ else
 endif
 
 function! s:OpenMarked()
-    execute "w"
-    execute ":silent !open -a Marked '%:p'"
-    set ut=250
-    au CursorHold,CursorHoldI * update
+  execute "w"
+  execute ":silent !open -a Marked '%:p'"
+  set ut=250
+  set sts=4
+  au CursorHold,CursorHoldI *.md update
+  au BufDelete,VimLeave *.md :call s:CloseMarked() 
 endfunction
 
+function! s:CloseMarked()
+  execute "silent !osascript -e 'tell application \"Marked\"' -e 'if (count of windows) / 2 <= 1 then' -e 'quit application' -e 'else' -e 'close window \"" . expand("%:p:t") . "\"' -e 'end if' -e 'end tell'"
+endfunction 
+
 if has("macunix")
-  " Markdown stuff
   if expand("%") == ""
-    " No filename
     au BufWrite * call s:OpenMarked()
   else
-    " Existing file
     call s:OpenMarked()
   endif
 endif
