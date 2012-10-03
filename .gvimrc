@@ -35,4 +35,8 @@ let g:ConqueTerm_EscKey = ''
 
 command! Marked :silent !open -a Marked.app '%:p'
 
+au WinEnter * :if expand('%')=='REPL' | call acp#disable() | execute "AutoCloseOff" | else | call acp#enable() | endif
 
+" if has("macunix")
+"     set transparency=10
+" endif
