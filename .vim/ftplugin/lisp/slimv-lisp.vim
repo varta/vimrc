@@ -105,7 +105,7 @@ function! b:SlimvImplementation()
     if match( lisp, 'ecl' ) >= 0
         return 'ecl'
     endif
-    if match( lisp, 'x86cl' ) >= 0
+    if match( lisp, 'ccl32' ) || match( lisp, 'ccl64' ) >= 0
         return 'clozure'
     endif
     if match( lisp, 'lwl' ) >= 0
@@ -131,17 +131,18 @@ function! b:SlimvSwankLoader()
         return ''
     endif
 
+ 	
     " Build proper SWANK loader command for the Lisp implementation used
     if g:slimv_impl == 'sbcl'
-        return '"' . g:slimv_lisp . '" --load "' . swanks[0] . '"'
+        return g:slimv_lisp . ' --load ' . swanks[0]
     elseif g:slimv_impl == 'clisp'
-        return '"' . g:slimv_lisp . '" -i "' . swanks[0] . '"'
+        return g:slimv_lisp . ' -i ' . swanks[0]
     elseif g:slimv_impl == 'allegro'
-        return '"' . g:slimv_lisp . '" -L "' . swanks[0] . '"'
+        return g:slimv_lisp . ' -L ' . swanks[0]
     elseif g:slimv_impl == 'cmu'
-        return '"' . g:slimv_lisp . '" -load "' . swanks[0] . '"'
+        return g:slimv_lisp . ' -load ' . swanks[0]
     else
-        return '"' . g:slimv_lisp . '" -l "' . swanks[0] . '"'
+        return g:slimv_lisp . ' -l ' . swanks[0]
     endif
 endfunction
 

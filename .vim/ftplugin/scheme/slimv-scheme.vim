@@ -52,7 +52,7 @@ function! b:SlimvSwankLoader()
         if len( swanks ) == 0
             return ''
         endif
-        return '"' . g:slimv_lisp . '" --load "' . swanks[0] . '"'
+        return g:slimv_lisp . ' --load ' . swanks[0]
     endif
     return ''
 endfunction

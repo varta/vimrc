@@ -90,7 +90,7 @@ function! SlimvSwankCommand()
         if g:slimv_windows || g:slimv_cygwin
             return '!start /MIN ' . cmd
         elseif g:slimv_osx
-            return '!osascript -e "tell application \"Terminal\" to do script \"' . cmd . '\""'
+            return '!osascript -e "tell application \"iTerm\"" -e "set t to (make new terminal)" -e "tell t" -e "set s to (make new session)" -e "tell s" -e "exec command \"/usr/local/bin/' . cmd . '\"" -e "end tell" -e "end tell" -e "end tell"'
         elseif $STY != ''
             " GNU screen under Linux
             return '! screen -X eval "title swank" "screen ' . cmd . '" "select swank"'
@@ -581,18 +581,18 @@ function! SlimvReplLeave()
 endfunction
 
 " View the given file in a top/bottom/left/right split window
-function! s:SplitView( filename )
-    if winnr('$') >= 2
-        " We have already at least two windows
-        if bufnr("%") == s:current_buf && winnr() == s:current_win
-            " Keep the current window on screen, use the other window for the new buffer
-            execute "wincmd p"
-        endif
-        execute "silent view! " . a:filename
-    else
+function! s:SplitView( filename, reuse )
+    if winnr('$') >= 2 && a:reuse
+         " We have already at least two windows
+         if bufnr("%") == s:current_buf && winnr() == s:current_win
+             " Keep the current window on screen, use the other window for the new buffer
+             execute "wincmd j"
+         endif
+         execute "silent view! " . a:filename
+     else
         " No windows yet, need to split
         if g:slimv_repl_split == 1
-            execute "silent topleft sview! " . a:filename
+            execute "silent 10sview! " . a:filename
         elseif g:slimv_repl_split == 2
             execute "silent botright sview! " . a:filename
         elseif g:slimv_repl_split == 3
@@ -602,7 +602,7 @@ function! s:SplitView( filename )
         else
             execute "silent view! " . a:filename
         endif
-    endif
+     endif
     stopinsert
 endfunction
 
@@ -611,14 +611,14 @@ function! SlimvOpenBuffer( name )
     let buf = bufnr( a:name )
     if buf == -1
         " Create a new buffer
-        call s:SplitView( a:name )
+        call s:SplitView( a:name, a:name != g:slimv_repl_name )
     else
         if g:slimv_repl_split
             " Buffer is already created. Check if it is open in a window
             let win = bufwinnr( buf )
             if win == -1
                 " Create windows
-                call s:SplitView( a:name )
+                call s:SplitView( a:name, a:name != g:slimv_repl_name )
             else
                 " Switch to the buffer's window
                 if winnr() != win
