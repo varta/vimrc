@@ -5,6 +5,8 @@ set tabstop=4
 set softtabstop=4
 set smarttab
 set expandtab
+set ignorecase
+set smartcase
 set tw=80
 syntax on
 set formatoptions+=r
@@ -13,6 +15,7 @@ set bs=2
 set mouse=a
 set nobackup
 set ruler
+set showcmd
 set clipboard=unnamed
 set encoding=utf-8
 set hlsearch
@@ -35,6 +38,9 @@ endif
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 au BufNewFile,BufRead *.mips set syntax=mips
 au BufNewFile,BufRead *.cpp set syntax=cpp11
+au BufNewFile,BufRead *.h set syntax=cpp11
+
+au BufNewFile,BufRead *.nfo edit ++enc=cp437
 
 " Goto file opens in new tab
 nnoremap gf <C-w>gf
