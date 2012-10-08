@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language: Salsa
 " Maintainer:   Frank Erens <frank.erens@gmail.com>
-" Last Change:  2012 Aug 2
+" Last Change:  2012 Oct 8
 
 if version < 600
   syntax clear
@@ -14,20 +14,22 @@ syntax case match
 syn match salsaConstant "@\w\+"
 syn match salsaNumber "\<\d\+\>"
 
-syn keyword salsaConstant true false
+syn keyword salsaBoolean true false
 syn match salsaKeyword "\$"
 syn keyword salsaType integer real number special bool string table object
-syn keyword salsaStructure function class enum
+syn keyword salsaStructure function class enum macro
 syn keyword salsaStructure namespace
 syn keyword salsaStatement return this parent using include import
-syn keyword salsaConditional if else unless
+syn keyword salsaConditional if else unless cond
 syn keyword salsaRepeat do while until for foreach
 
-syn keyword salsaStatement cfun typeof
+syn keyword salsaStatement cfun typeof quote unquote 
+syn match   salsaStatement "quoted?"
 syn keyword salsaBuiltin extends methods cmethods construct destruct to
 syn keyword salsaBuiltin unknown cunknown
 syn keyword salsaBuiltin instanceof
 syn keyword salsaBuiltin iden cnst noop map
+syn keyword salsaBuiltin car cdr
 
 syn match salsaBuiltin "!!settypeof\|!!settypehandler\|!!setunknownhandlerfor"
 syn match salsaBuiltin "!!setintegerconstructor\|!!setintegertype"
@@ -39,6 +41,7 @@ syn region salsaString         start=+L\="+ skip=+\\\\\|\\"+ end=+"+ contains=@S
 hi def link salsaComment      Comment
 hi def link salsaNumber       Number
 hi def link salsaString       String
+hi def link salsaBoolean      Boolean
 hi def link salsaType         Type
 hi def link salsaSpecial      Special
 hi def link salsaBuiltin      Identifier
