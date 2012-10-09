@@ -1,5 +1,6 @@
-" MacVim color scheme everywhere!
-colors macvim
+" Putting own color scheme to real-life test
+colo seysayux
+
 " But make all line numbers equal.
 hi CursorLineNr term=underline ctermfg=6 guifg=#888888 guibg=#E6E6E6
 
@@ -37,14 +38,15 @@ let g:ConqueTerm_EscKey = '<F8>'
 command! Marked :silent !open -a Marked.app '%:p'
 
 function s:TurnOffAutoComplete()
-    if expand('%')=='REPL' || expand('%') == NERD_tree_1 
+    if expand('%')=='REPL' || expand('%') == 'NERD_tree_1'
         call neocomplcache#disable() 
-        execute "AutoCloseOff" 
+        execute ":AutoCloseOff" 
     endif
 
 endfunction
 
-au WinEnter * :
+au WinEnter * :call s:TurnOffAutoComplete()
+
 if has("macunix") && &background == "dark"
     set transparency=10
 endif
