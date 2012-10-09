@@ -42,6 +42,9 @@ au BufNewFile,BufRead *.h set syntax=cpp11
 
 au BufNewFile,BufRead *.nfo edit ++enc=cp437
 
+" Pathogen
+call pathogen#infect()
+
 " Goto file opens in new tab
 nnoremap gf <C-w>gf
 nnoremap gF <C-w>gF

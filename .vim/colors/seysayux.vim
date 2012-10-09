@@ -42,7 +42,8 @@ else
 endif
 hi WarningMsg   guifg=Firebrick2
 
-hi Error        gui=NONE guifg=White guibg=Firebrick3
+hi Error term=reverse ctermfg=15 ctermbg=12 guifg=Orange guibg=DarkRed gui=underline 
+
 hi Ignore       gui=NONE guifg=bg guibg=NONE
 hi PreProc      gui=NONE guifg=DodgerBlue3 guibg=NONE
 hi Underlined   gui=underline guifg=SteelBlue1
@@ -52,8 +53,8 @@ if &background == "dark"
     " Dark colors
     hi Normal guifg=#FFFFFF guibg=#000000 ctermfg=14
 
-    hi LineNr       guibg=#888888 guifg=#E6E6E6
-    hi CursorLineNr       guibg=#888888 guifg=#E6E6E6 gui=bold
+    hi LineNr       guibg=black guifg=#333333
+    hi CursorLineNr       guibg=Gray20 guifg=#666666 gui=bold
     hi ColorColumn term=reverse ctermbg=7 guibg=#666666
     hi CursorLine   guibg=Gray20
     hi Pmenu guibg=#444444
@@ -65,10 +66,15 @@ if &background == "dark"
     hi Constant guifg=#E47C48
     hi String guifg=#FE2B38
     hi Character guifg=#786DFF
-    hi Identifier guifg=#23FF83 
+    hi Identifier guifg=#00CC00
     hi Statement guifg=#D31881
     hi PreProc guifg=#E47C48
     hi Type guifg=#00A0FF
+    hi Directory guifg=#00A0FF
+    
+    if has("gui_macvim")
+        set transparency=10
+    endif
 
 else " &background == light
     " light colors
@@ -89,10 +95,23 @@ else " &background == light
     " syntax highlighting groups
     hi Comment guifg=#888888 gui=italic
     hi Constant guifg=DarkOrange
-    hi String guifg=#FE2B38
+    hi String guifg=#AA0000
     hi Character guifg=#786DFF
-    hi Identifier guifg=Green4
+    hi Identifier guifg=Aquamarine4
     hi Statement guifg=Maroon
     hi PreProc guifg=Green4 gui=bold
-    hi Type guifg=#3333FF
+    hi Type guifg=#134DBF
+    hi Directory guifg=#134DBF
+    
+    if has("gui_macvim")
+        set transparency=0
+    endif
 endif
+
+if has("gui_macvim") && !exists("s:augroups_defined")
+  au FocusLost * if exists("colors_name") && colors_name == "seysayux" | hi Visual guibg=MacSecondarySelectedControlColor | endif
+  au FocusGained * if exists("colors_name") && colors_name == "seysayux" | hi Visual guibg=MacSelectedTextBackgroundColor | endif
+
+  let s:augroups_defined = 1
+endif
+
