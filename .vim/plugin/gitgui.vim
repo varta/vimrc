@@ -1,6 +1,12 @@
 if has("macunix")
-    command! GitGui !/usr/local/bin/git gui
-    command! GitX !/usr/local/bin/gitx
+
+    function s:OpenGitGui(gui)
+        execute "!".a:gui
+        call g:NERDTreeRefreshRoot()
+    endfunction
+
+    command! GitGui call s:OpenGitGui("/usr/local/bin/git gui") 
+    command! GitX call s:OpenGitGui("/usr/local/bin/gitx") 
 
     amenu <silent> Git.Git\ Gui<Tab>⌘⇧C :GitGui<CR>
     amenu <silent> Git.GitX<Tab>⌘⇧H :GitX<CR>

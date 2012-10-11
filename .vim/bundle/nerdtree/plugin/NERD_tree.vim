@@ -3752,6 +3752,20 @@ function! s:renderBookmarks()
     call setline(line(".")+1, '')
     call cursor(line(".")+1, col("."))
 endfunction
+
+"FUNCTION: s:renderGitBranch {{{2
+function! s:renderGitBranch()
+
+    if g:NERDTreeMinimalUI == 0 && fugitive#head() != ""
+        call setline(line(".")+1, " Git branch: ".fugitive#head())
+        call cursor(line(".")+1, col("."))
+        call setline(line(".")+1, '')
+        call cursor(line(".")+1, col("."))
+    endif
+
+    
+endfunction
+
 "FUNCTION: s:renderView {{{2
 "The entry function for rendering the tree
 function! s:renderView()
@@ -3777,6 +3791,8 @@ function! s:renderView()
     if b:NERDTreeShowBookmarks
         call s:renderBookmarks()
     endif
+
+    call s:renderGitBranch()
 
     "add the 'up a dir' line
     if !g:NERDTreeMinimalUI
@@ -4303,6 +4319,13 @@ function! s:refreshRoot()
     call s:echo("Refreshing the root node. This could take a while... DONE")
 endfunction
 
+" FUNCTION: g:NERDTreeRefreshRoot() {{{2
+function! g:NERDTreeRefreshRoot()
+    call b:NERDTreeRoot.refresh()
+    call s:renderView()
+    redraw
+endfunction
+
 " FUNCTION: s:refreshCurrent(node) {{{2
 " refreshes the root for the current node
 function! s:refreshCurrent(node)
@@ -4316,7 +4339,7 @@ function! s:refreshCurrent(node)
     call s:renderView()
     redraw
     call s:echo("Refreshing node. This could take a while... DONE")
-endfunction
+endfunctio
 " FUNCTION: s:showMenu(node) {{{2
 function! s:showMenu(node)
     let mc = s:MenuController.New(s:MenuItem.AllEnabled())

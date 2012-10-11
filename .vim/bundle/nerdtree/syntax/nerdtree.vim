@@ -50,6 +50,9 @@ syn match NERDTreeBookmarksHeader #^>-\+Bookmarks-\+$# contains=NERDTreeBookmark
 syn match NERDTreeBookmarkName #^>.\{-} #he=e-1 contains=NERDTreeBookmarksLeader
 syn match NERDTreeBookmark #^>.*$# contains=NERDTreeBookmarksLeader,NERDTreeBookmarkName,NERDTreeBookmarksHeader
 
+"highlighting for git
+syn match NERDTreeGitBranch #^ Git branch:.*# contains=NERDTreeBookmarksLeader
+
 if exists("g:NERDChristmasTree") && g:NERDChristmasTree
     hi def link NERDTreePart Special
     hi def link NERDTreePartFile Type
@@ -86,3 +89,5 @@ hi def link NERDTreeRO WarningMsg
 hi def link NERDTreeBookmark Statement
 
 hi def link NERDTreeCurrentNode Search
+
+hi def link NERDTreeGitBranch Macro

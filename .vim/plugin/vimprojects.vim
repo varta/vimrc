@@ -12,7 +12,6 @@ fun! FindProject()
             return l:dir
         endif
 
-        echo l:dir
         let l:dir = fnamemodify(l:dir, ":h")
     endwhile
 
