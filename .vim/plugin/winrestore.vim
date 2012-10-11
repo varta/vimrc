@@ -18,7 +18,7 @@ if has("gui_running")
       let vim_instance = (g:screen_size_by_vim_instance==1?(v:servername):'GVIM')
       for line in readfile(f)
         let sizepos = split(line)
-        if len(sizepos) == 5 && sizepos[0] == vim_instance
+        if len(sizepos) == 5 " && sizepos[0] == vim_instance
           silent! execute "set columns=".sizepos[1]." lines=".sizepos[2]
           silent! execute "winpos ".sizepos[3]." ".sizepos[4]
           return
@@ -55,3 +55,5 @@ if has("gui_running")
   autocmd VimEnter * if g:screen_size_restore_pos == 1 | call ScreenRestore() | endif
   autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call ScreenSave() | endif
 endif
+
+command! WinRestore call ScreenRestore()
