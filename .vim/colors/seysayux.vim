@@ -42,10 +42,10 @@ else
 endif
 hi WarningMsg   guifg=Firebrick2
 
-hi Error term=reverse ctermfg=15 ctermbg=12 guifg=Orange guibg=DarkRed gui=underline 
+hi Error term=reverse ctermfg=15 ctermbg=12 
+hi Error guifg=DarkRed guibg=#FFAA33 gui=underline,bold,italic 
 
 hi Ignore       gui=NONE guifg=bg guibg=NONE
-hi PreProc      gui=NONE guifg=DodgerBlue3 guibg=NONE
 hi Underlined   gui=underline guifg=SteelBlue1
 hi Special      gui=NONE guifg=BlueViolet guibg=NONE
 
@@ -68,7 +68,7 @@ if &background == "dark"
     hi Character guifg=#786DFF
     hi Identifier guifg=#00CC00
     hi Statement guifg=#D31881
-    hi PreProc guifg=#E47C48
+    hi PreProc guifg=#E47C48 gui=bold
     hi Type guifg=#00A0FF
     hi Directory guifg=#00A0FF
     
@@ -109,8 +109,10 @@ else " &background == light
 endif
 
 if has("gui_macvim") && !exists("s:augroups_defined")
-  au FocusLost * if exists("colors_name") && colors_name == "seysayux" | hi Visual guibg=MacSecondarySelectedControlColor | endif
-  au FocusGained * if exists("colors_name") && colors_name == "seysayux" | hi Visual guibg=MacSelectedTextBackgroundColor | endif
+  au FocusLost * if exists("colors_name") && colors_name == "seysayux" | 
+      \ hi Visual guibg=MacSecondarySelectedControlColor | endif
+  au FocusGained * if exists("colors_name") && colors_name == "seysayux" | 
+      \ hi Visual guibg=MacSelectedTextBackgroundColor | endif
 
   let s:augroups_defined = 1
 endif
