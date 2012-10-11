@@ -73,5 +73,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Neocomplcache + clang_complete 
 let g:neocomplcache_force_overwrite_completefunc=1
 let g:clang_complete_auto=1
+let g:clang_auto_select=0
+let g:clang_use_library=1
 
 execute ":NeoComplCacheEnable"
