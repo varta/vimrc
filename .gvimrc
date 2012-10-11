@@ -51,6 +51,9 @@ if has("macunix") && &background == "dark"
     set transparency=10
 endif
 
+" Fugitive
+set statusline=%{fugitive#statusline()}
+
 " Use neocomplcache. 
 let g:neocomplcache_enable_at_startup = 1 
 " Use smartcase. 
@@ -76,4 +79,8 @@ let g:clang_complete_auto=1
 let g:clang_auto_select=0
 let g:clang_use_library=1
 
-execute ":NeoComplCacheEnable"
+if &ft != "c" && &ft != "cpp"
+    execute ":NeoComplCacheEnable"
+endif
+
+autocmd FileType c,cpp silent! execute ":NeoComplCacheDisable"
