@@ -288,16 +288,19 @@ function! s:Backspace()
 endfunction
 
 function! s:Space()
-    if b:AutoCloseOn && s:IsEmptyPair()
-        call s:PushBuffer("\<Space>")
-        return "\<Space>\<Space>\<Left>"
-    else
+    " if b:AutoCloseOn && s:IsEmptyPair()
+    "     call s:PushBuffer("\<Space>")
         return "\<Space>"
-    endif
+    " else
+    "     return "\<Space>"
+    " endif
 endfunction
 
 function! s:Enter()
-    if b:AutoCloseOn && s:IsEmptyPair() && stridx( b:AutoCloseExpandEnterOn, s:GetPrevChar() ) >= 0
+    if pumvisible()
+        let b:snippet_chosen=1
+        return "\<C-Y>"
+    elseif b:AutoCloseOn && s:IsEmptyPair() && stridx( b:AutoCloseExpandEnterOn, s:GetPrevChar() ) >= 0
         return "\<CR>\<Esc>O"
     else
         return "\<CR>"

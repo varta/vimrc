@@ -78,6 +78,7 @@ let g:neocomplcache_force_overwrite_completefunc=1
 let g:clang_complete_auto=1
 let g:clang_auto_select=0
 let g:clang_use_library=1
+let g:clang_close_preview=1
 
 if &ft != "c" && &ft != "cpp"
     execute ":NeoComplCacheEnable"
