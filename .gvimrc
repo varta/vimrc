@@ -45,7 +45,7 @@ endfunction
 au WinEnter * :call s:TurnOffAutoComplete()
 
 " Fugitive
-set statusline=%{fugitive#statusline()}
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Use neocomplcache. 
 let g:neocomplcache_enable_at_startup = 1 
