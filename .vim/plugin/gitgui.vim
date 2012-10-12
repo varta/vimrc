@@ -2,6 +2,7 @@ if has("macunix")
 
     function s:OpenGitGui(gui)
         execute "!".a:gui
+        execute "1wincmd w"
         call g:NERDTreeRefreshRoot()
     endfunction
 

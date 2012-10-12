@@ -48,6 +48,7 @@ hi Error guifg=DarkRed guibg=#FFAA33 gui=underline,bold,italic
 hi Ignore       gui=NONE guifg=bg guibg=NONE
 hi Underlined   gui=underline guifg=SteelBlue1
 hi Special      gui=NONE guifg=BlueViolet guibg=NONE
+hi Snippet      gui=italic guifg=Goldenrod guibg=#FFFFCC
 
 if &background == "dark"
     " Dark colors

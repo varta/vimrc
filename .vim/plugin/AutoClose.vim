@@ -297,11 +297,11 @@ function! s:Space()
 endfunction
 
 function! s:Enter()
-    if pumvisible()
+    if b:AutoCloseOn && s:IsEmptyPair() && stridx( b:AutoCloseExpandEnterOn, s:GetPrevChar() ) >= 0
+        return "\<CR>\<Esc>O"
+    elseif pumvisible()
         let b:snippet_chosen=1
         return "\<C-Y>"
-    elseif b:AutoCloseOn && s:IsEmptyPair() && stridx( b:AutoCloseExpandEnterOn, s:GetPrevChar() ) >= 0
-        return "\<CR>\<Esc>O"
     else
         return "\<CR>"
     endif

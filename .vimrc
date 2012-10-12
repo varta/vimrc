@@ -37,8 +37,6 @@ endif
 " Syntax stuff
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 au BufNewFile,BufRead *.mips set syntax=mips
-au BufNewFile,BufRead *.cpp set syntax=cpp11
-au BufNewFile,BufRead *.h set syntax=cpp11
 
 au BufNewFile,BufRead *.nfo edit ++enc=cp437
 
@@ -54,9 +52,6 @@ cmap w!! set bt=nowrite :%!sudo tee "%"
 
 " Always use LaTeX for .tex files
 let g:tex_flavor='latex'
-
-" Build project (eclim)
-noremap <D-b> <Esc>:BuildProject<CR>
 
 " Map redraw screen (C-L) to also turn of search highlighting.
 nnoremap <C-l> :nohl<CR><C-l>
@@ -79,3 +74,8 @@ command! Shell ConqueTermSplit zsh
 command! Make :make! | copen
 command! -nargs=1 Man ConqueTermSplit man -P "ul | cat -s" <args>
 
+" Snipmate
+let g:SnipMate = {}
+let g:SnipMate.scope_aliases = {}
+let g:SnipMate.scope_aliases['cpp11'] = 'cpp,c'
+let g:snips_author = "Frank \"SeySayux\" Erens"

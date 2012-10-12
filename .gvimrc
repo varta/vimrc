@@ -1,9 +1,6 @@
 " Putting own color scheme to real-life test
 colo seysayux
 
-" But make all line numbers equal.
-hi CursorLineNr term=underline ctermfg=6 guifg=#888888 guibg=#E6E6E6
-
 set number
 set cursorline
 set showtabline=2
@@ -47,10 +44,6 @@ endfunction
 
 au WinEnter * :call s:TurnOffAutoComplete()
 
-if has("macunix") && &background == "dark"
-    set transparency=10
-endif
-
 " Fugitive
 set statusline=%{fugitive#statusline()}
 
@@ -79,9 +72,12 @@ let g:clang_complete_auto=1
 let g:clang_auto_select=0
 let g:clang_use_library=1
 let g:clang_close_preview=1
+"let g:clang_snippets=1
+"let g:clang_snippets_engine='snipmate'
 
 if &ft != "c" && &ft != "cpp"
     execute ":NeoComplCacheEnable"
 endif
 
 autocmd FileType c,cpp silent! execute ":NeoComplCacheDisable"
+
