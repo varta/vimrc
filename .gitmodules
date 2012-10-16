@@ -6,10 +6,10 @@
 	url = https://github.com/Shougo/neocomplcache.git
 [submodule ".vim/bundle/NerdTreeGit"]
 	path = .vim/bundle/NerdTreeGit
-	url = git@github.com:SeySayux/NerdTreeGit.git
+	url = https://github.com/SeySayux/NerdTreeGit.git
 [submodule ".vim/bundle/vim-snippets"]
 	path = .vim/bundle/vim-snippets
-	url = git@github.com:SeySayux/vim-snippets.git
+	url = https://github.com/SeySayux/vim-snippets.git
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
