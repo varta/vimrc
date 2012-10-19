@@ -34,15 +34,7 @@ let g:ConqueTerm_EscKey = '<F8>'
 
 command! Marked :silent !open -a Marked.app '%:p'
 
-function s:TurnOffAutoComplete()
-    if expand('%')=='REPL' || expand('%') == 'NERD_tree_1'
-        call neocomplcache#disable() 
-        execute ":AutoCloseOff" 
-    endif
 
-endfunction
-
-au WinEnter * :call s:TurnOffAutoComplete()
 
 " Fugitive
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
@@ -66,18 +58,19 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete 
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags 
 
-" Neocomplcache + clang_complete 
-let g:neocomplcache_force_overwrite_completefunc=1
-let g:clang_complete_auto=1
-let g:clang_auto_select=0
-let g:clang_use_library=1
-let g:clang_close_preview=1
-"let g:clang_snippets=1
-"let g:clang_snippets_engine='snipmate'
-
 if &ft != "c" && &ft != "cpp"
     execute ":NeoComplCacheEnable"
 endif
+
+function s:TurnOffAutoComplete()
+    if expand('%')=='REPL' || expand('%') == 'NERD_tree_1'
+        call neocomplcache#disable() 
+        execute ":AutoCloseOff" 
+    endif
+
+endfunction
+
+au WinEnter * :call s:TurnOffAutoComplete()
 
 autocmd FileType c,cpp silent! execute ":NeoComplCacheDisable"
 
