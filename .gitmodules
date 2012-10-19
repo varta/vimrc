@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/bundle/prolog.vim"]
+	path = .vim/bundle/prolog.vim
+	url = https://github.com/adimit/prolog.vim.git
