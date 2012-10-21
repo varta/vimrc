@@ -27,7 +27,7 @@ syntax on
 filetype plugin on
 filetype plugin indent on
 
-if !has("macunix") || has("gui")
+if version > 703
   set formatoptions+=j
 endif
 
