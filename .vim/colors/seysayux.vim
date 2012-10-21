@@ -34,12 +34,7 @@ hi TabLine      gui=underline guibg=LightGrey
 hi TabLineFill  gui=reverse
 hi TabLineSel   gui=bold
 hi Title        gui=bold guifg=DeepSkyBlue3
-hi VertSplit    gui=NONE guifg=DarkSlateGray guibg=Gray90
-if has("gui_macvim")
-  hi Visual       guibg=MacSelectedTextBackgroundColor
-else
-  hi Visual       guibg=#72F7FF
-endif
+
 hi WarningMsg   guifg=Firebrick2
 
 hi Error term=reverse ctermfg=15 ctermbg=12 
@@ -54,10 +49,10 @@ if &background == "dark"
     " Dark colors
     hi Normal guifg=#FFFFFF guibg=#000000 ctermfg=14
 
-    hi LineNr       guibg=black guifg=#333333
-    hi CursorLineNr       guibg=Gray20 guifg=#666666 gui=bold
+    hi LineNr       guibg=black guifg=#666666
+    hi CursorLineNr       guibg=Gray10 guifg=#cccccc gui=bold
     hi ColorColumn term=reverse ctermbg=7 guibg=#666666
-    hi CursorLine   guibg=Gray20
+    hi CursorLine   guibg=Gray10
     hi Pmenu guibg=#444444
 
     hi Todo         gui=NONE guibg=Green4 guifg=PaleGreen1
@@ -73,8 +68,12 @@ if &background == "dark"
     hi Type guifg=#00A0FF
     hi Directory guifg=#00A0FF
     
+    hi VertSplit    gui=NONE guifg=DarkSlateGray guibg=Gray50
+
+    hi Visual       guibg=#666666
+
     if has("gui_macvim")
-        set transparency=10
+        set transparency=15
     endif
 
 else " &background == light
@@ -103,7 +102,15 @@ else " &background == light
     hi PreProc guifg=Green4 gui=bold
     hi Type guifg=#134DBF
     hi Directory guifg=#134DBF
-    
+
+    hi VertSplit    gui=NONE guifg=DarkSlateGray guibg=Gray90
+
+    if has("gui_macvim")
+        hi Visual       guibg=MacSelectedTextBackgroundColor
+    else
+        hi Visual       guibg=#72F7FF
+    endif   
+
     if has("gui_macvim")
         set transparency=0
     endif
@@ -111,9 +118,17 @@ endif
 
 if has("gui_macvim") && !exists("s:augroups_defined")
   au FocusLost * if exists("colors_name") && colors_name == "seysayux" | 
-      \ hi Visual guibg=MacSecondarySelectedControlColor | endif
+      \ if &bg == "light" | 
+      \ hi Visual guibg=MacSecondarySelectedControlColor | 
+      \ else |
+      \ hi Visual guibg=#333333 |
+      \ endif
   au FocusGained * if exists("colors_name") && colors_name == "seysayux" | 
-      \ hi Visual guibg=MacSelectedTextBackgroundColor | endif
+      \ if &bg == "light" | 
+      \ hi Visual guibg=MacSelectedTextBackgroundColor | 
+      \ else |
+      \ hi Visual guibg=#666666 |
+      \ endif
 
   let s:augroups_defined = 1
 endif
