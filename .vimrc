@@ -10,10 +10,10 @@ set smarttab
 set expandtab
 set ignorecase
 set smartcase
-set tw=80
-set formatoptions+=r
+set textwidth=80
+set formatoptions+=rj
 set cinoptions=:0g0
-set bs=2
+set backspace=2
 set mouse=a
 set nobackup
 set ruler
@@ -32,7 +32,7 @@ set autochdir
 
 " Set term correctly on Cygwin and Windows {{{1
 if has("win32") || has("win32unix")
-    set term=builtin_ansi
+  set term=builtin_ansi
 endif
 
 " Keybinds {{{1
@@ -56,10 +56,21 @@ vnoremap <D-i> =
 nnoremap <C-Space> <C-x><C-u>
 inoremap <C-Space> <C-x><C-u>
 
+" Easier split switching {{{2
+nnoremap <Tab> <C-w>w
+nnoremap <S-Tab> <C-w>W
+
 " End keybinds }}}
 
-" Make with automatic copen {{{1
+" Commands {{{1
+
+" Marked {{{2
+command! Marked :silent !open -a Marked.app '%:p'
+
+" Make with automatic copen {{{2
 command! Make :make! | copen
+
+" End commands }}}
 
 " Templates {{{1 
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
@@ -86,14 +97,21 @@ let g:lisp_rainbow=1
 " NERDTree options {{{1
 " Do not start NerdTree by default
 let g:nerdtree_tabs_open_on_gui_startup = 0
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
 
 " ConqueTerm options {{{1
+" Conque options
+let g:ConqueTerm_InsertOnEnter = 0
+let g:ConqueTerm_EscKey = '<F8>'
+
+" Command bindings {{{2
 " Open a shell
 command! Shell ConqueTermSplit zsh
 " Open manpages
 command! -nargs=1 Man ConqueTermSplit man -P "ul | cat -s" <args>
 
- " SuperTab options {{{1
+" SuperTab options {{{1
 " Context aware completion
 let g:SuperTabDefaultCompletionType = "context"
 
@@ -111,6 +129,50 @@ let g:clang_close_preview=1
 " let g:clang_snippets=1
 " let g:clang_snippets_engine='snipmate'
 
+" NeoComplCache options {{{1
+" Options {{{2
+" Use smartcase. 
+let g:neocomplcache_enable_smart_case = 1 
+" Use camel case completion. 
+let g:neocomplcache_enable_camel_case_completion = 1 
+" Use underbar completion. 
+let g:neocomplcache_enable_underbar_completion = 1 
+" Set minimum syntax keyword length. 
+let g:neocomplcache_min_syntax_length = 3 
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*' 
+
+" Enable omni completion. {{{2
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS 
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags 
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS 
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete 
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags 
+
+" Autoclose/NeoComplCache per-filetype settings {{{1
+" Enable except for C/C++
+if &ft != "c" && &ft != "cpp"
+  execute ":NeoComplCacheEnable"
+endif
+
+" Disable autoclose in Lisp
+au FileType lisp,scheme AutoCloseOff
+au BufNewFile,BufRead REPL AutoCloseOff
+
+" Re-enable autoclose when switching windows
+fun! s:TurnOffAutoComplete()
+  if &ft != "c" && &ft != "cpp" && &ft != "cpp11" && &buftype != "nofile"
+    if expand('%')=='REPL' || expand('%') == 'SLDB'
+      execute ":NeoComplCacheDisable"
+    else
+      execute ":NeoComplCacheEnable"
+    endif
+  endif
+end!
+
+au WinEnter * :call s:TurnOffAutoComplete()
+au BufNewFile,BufRead * :call s:TurnOffAutoComplete()
+
+autocmd FileType c,cpp silent! execute ":NeoComplCacheDisable"
 " }}}
 
 " vim: fdm=marker
