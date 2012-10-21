@@ -11,7 +11,7 @@ set expandtab
 set ignorecase
 set smartcase
 set textwidth=80
-set formatoptions+=rj
+set formatoptions+=r
 set cinoptions=:0g0
 set backspace=2
 set mouse=a
@@ -26,6 +26,10 @@ set grepprg=grep\ -nH\ $*
 syntax on
 filetype plugin on
 filetype plugin indent on
+
+if !has("macunix") || has("gui")
+  set formatoptions+=j
+endif
 
 " Automatically change to directory of file {{{1
 set autochdir
@@ -131,6 +135,8 @@ let g:clang_close_preview=1
 
 " NeoComplCache options {{{1
 " Options {{{2
+" Enable by default
+let g:neocomplcache_enable_at_startup = 1
 " Use smartcase. 
 let g:neocomplcache_enable_smart_case = 1 
 " Use camel case completion. 
@@ -149,11 +155,6 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags 
 
 " Autoclose/NeoComplCache per-filetype settings {{{1
-" Enable except for C/C++
-if &ft != "c" && &ft != "cpp"
-  execute ":NeoComplCacheEnable"
-endif
-
 " Disable autoclose in Lisp
 au FileType lisp,scheme AutoCloseOff
 au BufNewFile,BufRead REPL AutoCloseOff
@@ -167,7 +168,7 @@ fun! s:TurnOffAutoComplete()
       execute ":NeoComplCacheEnable"
     endif
   endif
-end!
+endfun
 
 au WinEnter * :call s:TurnOffAutoComplete()
 au BufNewFile,BufRead * :call s:TurnOffAutoComplete()

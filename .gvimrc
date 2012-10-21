@@ -6,7 +6,7 @@ set cursorline
 set showtabline=2
 set spell spelllang=en_us
 set guioptions-=L
-set colorcolumn+=1
+set colorcolumn=+1
 
 " Kinda hackish...
 if has("macunix")
