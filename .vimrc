@@ -32,7 +32,7 @@ if version > 703
 endif
 
 " Automatically change to directory of file {{{1
-set autochdir
+autocmd BufEnter * silent! lcd %:p:h
 
 " Set term correctly on Cygwin and Windows {{{1
 if has("win32") || has("win32unix")
@@ -135,8 +135,8 @@ let g:clang_close_preview=1
 
 " NeoComplCache options {{{1
 " Options {{{2
-" Enable by default
-let g:neocomplcache_enable_at_startup = 1
+" Disable globally (re-enable locally later)
+let g:neocomplcache_enable_at_startup = 0
 " Use smartcase. 
 let g:neocomplcache_enable_smart_case = 1 
 " Use camel case completion. 
