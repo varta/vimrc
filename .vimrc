@@ -84,6 +84,12 @@ au BufNewFile,BufRead *.mips set syntax=mips
 au BufNewFile,BufRead *.nfo edit ++enc=cp437
 " }}}
 
+" Projects
+
+" LibSylph options {{{1
+let g:LibSylphEmail = 'seysayux@gmail.com'
+" }}}
+
 " Plugins
 
 " Load Pathogen {{{1 
