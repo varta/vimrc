@@ -15,6 +15,7 @@ set formatoptions+=r
 set cinoptions=:0g0
 set backspace=2
 set mouse=a
+set nohidden
 set nobackup
 set ruler
 set showcmd
@@ -72,7 +73,7 @@ nnoremap <S-Tab> <C-w>W
 command! Marked :silent !open -a Marked.app '%:p'
 
 " Make with automatic copen {{{2
-command! Make :make! | copen
+command! -nargs=* Make :make! <args> | copen
 
 " End commands }}}
 
