@@ -8,6 +8,13 @@ set spell spelllang=en_us
 set guioptions-=L
 set colorcolumn=+1
 
+" Correct editor
+if has("macunix")
+  let $EDITOR='mvim'
+elseif has("unix")
+  let $EDTIOR='gvim'
+endif
+
 " Kinda hackish...
 if has("macunix")
   let NERDTreeWinSize=34

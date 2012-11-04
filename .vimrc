@@ -110,6 +110,8 @@ let g:lisp_rainbow=1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
+let g:NERDTreeMapHelp='h'
+let g:NERDTreeOpenInTabByDefault=1
 
 " ConqueTerm options {{{1
 " Conque options
