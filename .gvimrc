@@ -4,6 +4,7 @@ colo seysayux
 set number
 set cursorline
 set showtabline=2
+set laststatus=2
 set spell spelllang=en_us
 set guioptions-=L
 set colorcolumn=+1

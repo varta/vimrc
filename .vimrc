@@ -28,7 +28,7 @@ syntax on
 filetype plugin on
 filetype plugin indent on
 
-if version > 703
+if version >= 703
   set formatoptions+=j
 endif
 
@@ -96,10 +96,6 @@ let g:LibSylphEmail = 'seysayux@gmail.com'
 " Load Pathogen {{{1 
 call pathogen#infect()
 
-" LaTeX options {{{1
-" Always use LaTeX for .tex files
-let g:tex_flavor='latex'
-
 " Slimv options {{{1
 let g:lisp_rainbow=1
 
@@ -113,6 +109,10 @@ let NERDTreeChDirMode=2
 let g:NERDTreeMapHelp='h'
 let g:NERDTreeOpenInTabByDefault=1
 
+" Gitlib options {{{1
+" Use fugitive
+let g:GitlibUseFugitive=1
+
 " ConqueTerm options {{{1
 " Conque options
 let g:ConqueTerm_InsertOnEnter = 0
@@ -124,6 +124,9 @@ command! Shell ConqueTermSplit zsh
 " Open manpages
 command! -nargs=1 Man ConqueTermSplit man -P "ul | cat -s" <args>
 
+" Powerline Options {{{1
+let g:Powerline_symbols = 'fancy'
+let g:Powerline_colorscheme = 'seysayux_light'
 " SuperTab options {{{1
 " Context aware completion
 let g:SuperTabDefaultCompletionType = "context"
@@ -135,17 +138,20 @@ let g:SnipMate.scope_aliases['cpp11'] = 'cpp,c'
 let g:snips_author = "Frank \"SeySayux\" Erens"
 
 " clang_complete options {{{1
-let g:clang_complete_auto=0
+let g:clang_complete_auto=1
 let g:clang_auto_select=0
 let g:clang_use_library=1
 let g:clang_close_preview=1
+let g:clang_periodic_quickfix=1
+let g:clang_complete_copen=1
+let g:clang_hl_errors=1
 " let g:clang_snippets=1
 " let g:clang_snippets_engine='snipmate'
 
 " NeoComplCache options {{{1
 " Options {{{2
 " Disable globally (re-enable locally later)
-let g:neocomplcache_enable_at_startup = 0
+let g:neocomplcache_enable_at_startup = 1
 " Use smartcase. 
 let g:neocomplcache_enable_smart_case = 1 
 " Use camel case completion. 
@@ -155,6 +161,8 @@ let g:neocomplcache_enable_underbar_completion = 1
 " Set minimum syntax keyword length. 
 let g:neocomplcache_min_syntax_length = 3 
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*' 
+" Force NeoComplCache
+let g:neocomplcache_force_overwrite_completefunc=1
 
 " Enable omni completion. {{{2
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS 
@@ -162,6 +170,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS 
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete 
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags 
+autocmd FileType c,cpp setlocal omnifunc=ClangComplete
 
 " Autoclose/NeoComplCache per-filetype settings {{{1
 " Disable autoclose in Lisp
@@ -170,7 +179,7 @@ au BufNewFile,BufRead REPL AutoCloseOff
 
 " Re-enable autoclose when switching windows
 fun! s:TurnOffAutoComplete()
-  if &ft != "c" && &ft != "cpp" && &ft != "cpp11" && &buftype != "nofile"
+  if &buftype != "nofile"
     if expand('%')=='REPL' || expand('%') == 'SLDB'
       execute ":NeoComplCacheDisable"
     else
@@ -182,7 +191,6 @@ endfun
 au WinEnter * :call s:TurnOffAutoComplete()
 au BufNewFile,BufRead * :call s:TurnOffAutoComplete()
 
-autocmd FileType c,cpp silent! execute ":NeoComplCacheDisable"
 " }}}
 
 " vim: fdm=marker
