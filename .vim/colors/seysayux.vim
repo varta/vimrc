@@ -39,6 +39,7 @@ hi WarningMsg   guifg=Firebrick2
 
 hi Error        term=reverse ctermfg=15 ctermbg=12 
 hi Error        guifg=DarkRed guibg=#FFAA33 gui=underline,bold,italic 
+hi Warning      guifg=DarkRed
 
 hi Ignore       gui=NONE guifg=bg guibg=NONE
 hi Underlined   gui=underline guifg=SteelBlue1
