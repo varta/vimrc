@@ -28,7 +28,7 @@ syntax on
 filetype plugin on
 filetype plugin indent on
 
-if version >= 703
+if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j
 endif
 
@@ -108,6 +108,7 @@ let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
 let g:NERDTreeMapHelp='h'
 let g:NERDTreeOpenInTabByDefault=1
+let g:NERDTreeAutoRefreshOnSave=0
 
 " Gitlib options {{{1
 " Use fugitive
