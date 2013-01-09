@@ -1,4 +1,5 @@
 " Putting own color scheme to real-life test
+set bg=light
 colo seysayux
 
 set number
