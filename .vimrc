@@ -1,5 +1,15 @@
 " Local settings
 
+" Detect Environment {{{1
+
+if filereadable($HOME."/.vimfull")
+  let g:VimFullConfig = 1 
+else 
+  let g:VimFullConfig = 0
+endif
+
+" }}}
+
 " Vim options {{{1
 set smartindent
 set cindent
@@ -31,6 +41,8 @@ filetype plugin indent on
 if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j
 endif
+
+let g:tex_flavor='latex'
 
 " Automatically change to directory of file {{{1
 autocmd BufEnter * silent! lcd %:p:h
@@ -138,6 +150,12 @@ let g:SnipMate.scope_aliases = {}
 let g:SnipMate.scope_aliases['cpp11'] = 'cpp,c'
 let g:snips_author = "Frank \"SeySayux\" Erens"
 
+" LaTeX-Box options {{{1
+let g:LatexBox_viewer = 'open'
+let g:LatexBox_Folding = 1
+let g:LatexBox_fold_envs = 1
+let g:LatexBox_fold_preamble = 1
+
 " clang_complete options {{{1
 let g:clang_complete_auto=1
 let g:clang_auto_select=0
@@ -147,6 +165,7 @@ let g:clang_periodic_quickfix=1
 let g:clang_complete_copen=1
 let g:clang_hl_errors=1
 let g:clang_complete_macros=1
+let g:clang_user_options="-stdlib=libc++ -std=c++11 -Wall"
 " let g:clang_snippets=1
 " let g:clang_snippets_engine='snipmate'
 
