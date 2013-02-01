@@ -11,8 +11,7 @@ set guioptions-=L
 set colorcolumn=+1
 
 " Load MiniBufExplorer
-exe "MiniBufExplorer"
-autocmd VimEnter * exe "wincmd j"
+autocmd VimEnter * exe "MiniBufExplorer" | exe "wincmd j"
 
 " Correct editor
 if has("macunix")
