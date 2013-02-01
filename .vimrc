@@ -2,7 +2,7 @@
 
 " Detect Environment {{{1
 
-if filereadable($HOME."/.vimfull")
+if filereadable($HOME."/.vimfull") && has("gui")
   let g:VimFullConfig = 1 
 else 
   let g:VimFullConfig = 0
@@ -25,7 +25,7 @@ set formatoptions+=r
 set cinoptions=:0g0
 set backspace=2
 set mouse=a
-set nohidden
+set hidden
 set nobackup
 set ruler
 set showcmd
@@ -34,6 +34,7 @@ set encoding=utf-8
 set hlsearch
 set incsearch
 set grepprg=grep\ -nH\ $*
+
 syntax on
 filetype plugin on
 filetype plugin indent on
@@ -58,11 +59,16 @@ endif
 nnoremap <C-l> :nohl<CR><C-l>
 
 " Write as root {{{2
-cmap w!! set bt=nowrite :%!sudo tee "%"
+function s:WriteAsRoot()
+  setl bt=nowrite
+  normal! 'w !sudo tee % > /dev/null'
+endfunction
+
+cmap w!! call s:WriteAsRoot()
 
 " Goto file opens in new tab {{{2
-nnoremap gf <C-w>gf
-nnoremap gF <C-w>gF
+" nnoremap gf <C-w>gf
+" nnoremap gF <C-w>gF
 
 " Auto indent {{{2
 nnoremap <D-i> gg=G
@@ -106,12 +112,21 @@ let g:LibSylphEmail = 'seysayux@gmail.com'
 " Plugins
 
 " Load Pathogen {{{1 
-call pathogen#infect()
+if g:VimFullConfig
+  call pathogen#infect()
+endif
 
 " Slimv options {{{1
 let g:lisp_rainbow=1
 
+" MiniBufExplorer options {{{1
+if g:VimFullConfig
+  let g:miniBufExplorerMoreThanOne=0
+endif
 
+let g:miniBufExplUseSingleClick=1
+let g:statusLineText=""
+let g:miniBufExplorerDebugLevel=0
 
 " NERDTree options {{{1
 " Do not start NerdTree by default
@@ -200,6 +215,10 @@ autocmd FileType c,cpp setlocal omnifunc=ClangComplete
 au FileType lisp,scheme AutoCloseOff
 au BufNewFile,BufRead REPL AutoCloseOff
 
+" Disable autoclose in XML and html
+au FileType xml,html AutoCloseOff
+au FileType xml,html let b:AutoCloseNoCrRemap = 1
+
 " Re-enable autoclose when switching windows
 fun! s:TurnOffAutoComplete()
   if &buftype != "nofile"
@@ -214,6 +233,12 @@ endfun
 au WinEnter * :call s:TurnOffAutoComplete()
 au BufNewFile,BufRead * :call s:TurnOffAutoComplete()
 
+" }}}
+
+" Color scheme {{{1
+let g:force_greyComments=1
+set background=dark
+colo force
 " }}}
 
 " vim: fdm=marker

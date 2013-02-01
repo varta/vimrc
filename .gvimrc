@@ -1,14 +1,18 @@
 " Putting own color scheme to real-life test
 set bg=light
-colo seysayux
+colo force
 
 set number
 set cursorline
-set showtabline=2
+set showtabline=0
 set laststatus=2
 set spell spelllang=en_us
 set guioptions-=L
 set colorcolumn=+1
+
+" Load MiniBufExplorer
+exe "MiniBufExplorer"
+autocmd VimEnter * exe "wincmd j"
 
 " Correct editor
 if has("macunix")

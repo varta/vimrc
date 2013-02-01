@@ -435,7 +435,8 @@ function! s:CreateExtraMaps()
     if b:AutoCloseExpandSpace
         inoremap <buffer> <silent> <Space>      <C-R>=<SID>Space()<CR>
     endif
-    if len(b:AutoCloseExpandEnterOn) > 0
+    if len(b:AutoCloseExpandEnterOn) > 0 && (!exists('b:AutoCloseNoCrRemap') ||
+                \ !b:AutoCloseNoCrRemap)
         inoremap <buffer> <silent> <CR>      <C-R>=<SID>Enter()<CR>
     endif
 

@@ -4,9 +4,6 @@
 [submodule ".vim/bundle/neocomplcache"]
 	path = .vim/bundle/neocomplcache
 	url = https://github.com/Shougo/neocomplcache.git
-[submodule ".vim/bundle/NerdTreeGit"]
-	path = .vim/bundle/NerdTreeGit
-	url = https://github.com/SeySayux/NerdTreeGit.git
 [submodule ".vim/bundle/vim-snippets"]
 	path = .vim/bundle/vim-snippets
 	url = https://github.com/SeySayux/vim-snippets.git
@@ -46,3 +43,9 @@
 [submodule ".vim/bundle/LaTeX-Box"]
 	path = .vim/bundle/LaTeX-Box
 	url = https://github.com/LaTeX-Box-Team/LaTeX-Box
+[submodule ".vim/bundle/NerdTree"]
+	path = .vim/bundle/NerdTree
+	url = git@github.com:SeySayux/nerdtree.git
+[submodule ".vim/bundle/minibufexpl"]
+	path = .vim/bundle/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git

@@ -147,9 +147,13 @@ let g:Powerline#Colorschemes#seysayux_light#colorscheme = Pl#Colorscheme#Init([
       \ 'N': ['white', 'darkestred'],
       \ }),
       \
-      \ Pl#Hi#Segments(['lustyexplorer:static_str.name', 'minibufexplorer:static_str.name', 'nerdtree:raw.name', 'tagbar:static_str.name'], {
+      \ Pl#Hi#Segments(['lustyexplorer:static_str.name', 'nerdtree:raw.name', 'tagbar:static_str.name'], {
       \ 'n': ['white', 'gray4', ['bold']],
       \ 'N': ['gray11', 'gray3', ['bold']],
+      \ }),
+      \
+      \ Pl#Hi#Segments(['minibufexplorer:static_str.name'], {
+      \ 'n': ['gray12', 'gray12']
       \ }),
       \
       \ Pl#Hi#Segments(['lustyexplorer:static_str.buffer', 'tagbar:static_str.buffer'], {
@@ -157,13 +161,17 @@ let g:Powerline#Colorschemes#seysayux_light#colorscheme = Pl#Colorscheme#Init([
       \ 'N': ['gray11', 'gray3'],
       \ }),
       \
-      \ Pl#Hi#Segments(['lustyexplorer:SPLIT', 'minibufexplorer:SPLIT', 'nerdtree:SPLIT', 'tagbar:SPLIT'], {
+      \ Pl#Hi#Segments(['lustyexplorer:SPLIT', 'nerdtree:SPLIT', 'tagbar:SPLIT'], {
       \ 'n': ['white', 'gray4'],
       \ 'N': ['gray11', 'gray3'],
       \ }),
       \
       \ Pl#Hi#Segments(['ctrlp:focus', 'ctrlp:byfname'], {
       \ 'n': ['brightpurple', 'darkestpurple'],
+      \ }),
+      \
+      \ Pl#Hi#Segments(['minibufexplorer:SPLIT'], {
+      \ 'n': ['gray12', 'gray12']
       \ }),
       \
       \ Pl#Hi#Segments(['ctrlp:prev', 'ctrlp:next', 'ctrlp:pwd'], {
