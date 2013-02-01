@@ -45,7 +45,7 @@
 	url = https://github.com/LaTeX-Box-Team/LaTeX-Box
 [submodule ".vim/bundle/NerdTree"]
 	path = .vim/bundle/NerdTree
-	url = git@github.com:SeySayux/nerdtree.git
+	url = https://github.com/SeySayux/nerdtree.git
 [submodule ".vim/bundle/minibufexpl"]
 	path = .vim/bundle/minibufexpl
 	url = https://github.com/fholgado/minibufexpl.vim.git
