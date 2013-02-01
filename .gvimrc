@@ -33,3 +33,6 @@ endif
 " Fugitive
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" Splits
+set fillchars=vert:\│
+
