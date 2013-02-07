@@ -1,5 +1,5 @@
 
-if uname -s | grep -i "Cygwin"; then
+if uname -s | egrep -i "(Cygwin|MinGW)"; then
     copy    $REPO/.vim      vimfiles
     copy    $REPO/.vimrc    _vimrc
     copy    $REPO/.gvimrc   _gvimrc
