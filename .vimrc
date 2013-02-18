@@ -67,8 +67,8 @@ endfunction
 cmap w!! call s:WriteAsRoot()
 
 " Goto file opens in new tab {{{2
-" nnoremap gf <C-w>gf
-" nnoremap gF <C-w>gF
+nnoremap gf <C-w>gf
+nnoremap gF <C-w>gF
 
 " Auto indent {{{2
 nnoremap <D-i> gg=G
@@ -112,6 +112,8 @@ let g:LibSylphEmail = 'seysayux@gmail.com'
 " Plugins
 
 " Load Pathogen {{{1 
+let g:pathogen_disabled = []
+
 if g:VimFullConfig
   call pathogen#infect()
 endif
@@ -121,12 +123,15 @@ let g:lisp_rainbow=1
 
 " MiniBufExplorer options {{{1
 if g:VimFullConfig
-  let g:miniBufExplorerMoreThanOne=0
+  let g:miniBufExplBuffersNeeded=0
 endif
 
 let g:miniBufExplUseSingleClick=1
-let g:statusLineText=""
-let g:miniBufExplorerDebugLevel=0
+let g:miniBufExplorerDebugLevel=10
+" let g:miniBufExplForceSyntaxEnable=1
+
+" Buffalo options {{{1
+nmap <unique><silent> <leader>b <Plug>BuffaloTrigger
 
 " NERDTree options {{{1
 " Do not start NerdTree by default

@@ -1,4 +1,3 @@
-" Putting own color scheme to real-life test
 set bg=light
 colo force
 
@@ -11,7 +10,9 @@ set guioptions-=L
 set colorcolumn=+1
 
 " Load MiniBufExplorer
-autocmd VimEnter * exe "MiniBufExplorer" | exe "wincmd j"
+if g:VimFullConfig
+  " autocmd VimEnter * exe "MBEOpen" | exe "wincmd j"
+endif
 
 " Correct editor
 if has("macunix")
@@ -30,7 +31,9 @@ if has("win32") || has("win32unix")
 endif
 
 " Fugitive
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+if g:VimFullConfig
+  set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+endif
 
 " Splits
 set fillchars=vert:\│

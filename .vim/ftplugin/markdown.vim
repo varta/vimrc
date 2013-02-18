@@ -39,4 +39,8 @@ if has("macunix")
   endif
 endif
 
+" Personal settings (SeySayux)
+set formatoptions+=t "a
+set formatoptions-=l
+
 " vim:set sw=2:

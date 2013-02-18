@@ -48,4 +48,4 @@
 	url = https://github.com/SeySayux/nerdtree.git
 [submodule ".vim/bundle/minibufexpl"]
 	path = .vim/bundle/minibufexpl
-	url = https://github.com/fholgado/minibufexpl.vim.git
+	url = https://github.com/SeySayux/vim-plugin-minibufexpl
