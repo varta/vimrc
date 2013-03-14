@@ -235,8 +235,10 @@ fun! s:TurnOffAutoComplete()
   endif
 endfun
 
-au WinEnter * :call s:TurnOffAutoComplete()
-au BufNewFile,BufRead * :call s:TurnOffAutoComplete()
+if g:VimFullConfig
+  au WinEnter * :call s:TurnOffAutoComplete()
+  au BufNewFile,BufRead * :call s:TurnOffAutoComplete()
+endif
 
 " }}}
 

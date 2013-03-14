@@ -14,3 +14,12 @@ au FileType php map <D-/> :Testphp<CR>
 
 command Testrb execute "!ruby % < %:r.input"
 au FileType ruby map <D-/> :Testrb<CR>
+
+command Testc execute "!clang -Wall -O2 % -lm && ./a.out < %:r.input && rm a.out"
+au FileType c map <D-/> :Testc<CR>
+
+command Testcpp execute "!clang++ -Wall -O2 % -lm && ./a.out < %:r.input && rm a.out"
+au FileType cpp map <D-/> :Testcpp<CR>
+
+command Testcs execute "!mcs % && mono %:r.exe < %:r.input && rm %:r.exe"
+au FileType cs map <D-/> :Testcs<CR>

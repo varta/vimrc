@@ -36,4 +36,6 @@ fun! FindAndLoadProject()
     call LoadProject(FindProject())
 endfun
 
-au! BufNewFile,BufRead * silent! call FindAndLoadProject()
+if !has("win32")
+  au! BufNewFile,BufRead * silent! call FindAndLoadProject()
+endif
