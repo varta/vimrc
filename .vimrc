@@ -49,7 +49,7 @@ let g:tex_flavor='latex'
 autocmd BufEnter * silent! lcd %:p:h
 
 " Set term correctly on Cygwin and Windows {{{1
-if has("win32") || has("win32unix")
+if has("win32unix")
   set term=builtin_ansi
 endif
 
