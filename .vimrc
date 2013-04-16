@@ -130,7 +130,9 @@ else
   \ ]
 endif
 
-call pathogen#infect()
+if g:VimFullConfig
+  call pathogen#infect()
+endif
 
 " Slimv options {{{1
 let g:lisp_rainbow=1
