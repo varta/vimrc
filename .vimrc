@@ -66,10 +66,6 @@ endfunction
 
 cmap w!! call s:WriteAsRoot()
 
-" Goto file opens in new tab {{{2
-nnoremap gf <C-w>gf
-nnoremap gF <C-w>gF
-
 " Auto indent {{{2
 nnoremap <D-i> gg=G
 inoremap <D-i> <Esc>gg=Gi
@@ -83,6 +79,10 @@ inoremap <C-Space> <C-x><C-u>
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w>W
 
+" Spell check
+inoremap <C-BS> <C-X><C-S><C-P>
+nnoremap <C-BS> i<C-X><C-S><C-P>
+
 " End keybinds }}}
 
 " Commands {{{1
@@ -92,6 +92,9 @@ command! Marked :silent !open -a Marked.app '%:p'
 
 " Make with automatic copen {{{2
 command! -nargs=* Make :make! <args> | copen
+
+" Git Gui blame
+command! Ggblame :Git gui blame %
 
 " End commands }}}
 
@@ -130,8 +133,9 @@ let g:miniBufExplUseSingleClick=1
 let g:miniBufExplorerDebugLevel=10
 " let g:miniBufExplForceSyntaxEnable=1
 
-" Buffalo options {{{1
-nmap <unique><silent> <leader>b <Plug>BuffaloTrigger
+" CSS colors options
+let g:cssColorVimDoNotMessMyUpdatetime = 1
+
 
 " NERDTree options {{{1
 " Do not start NerdTree by default
@@ -146,16 +150,14 @@ let g:NERDTreeAutoRefreshOnSave=0
 " Use fugitive
 let g:GitlibUseFugitive=1
 
-" ConqueTerm options {{{1
-" Conque options
-let g:ConqueTerm_InsertOnEnter = 0
-let g:ConqueTerm_EscKey = '<F8>'
+" VimShell options {{{1
+let g:vimshell_popup_command='belowright split'
+let g:vimshell_popup_height=16
+let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+let g:vimshell_prompt = $USER."$ "
 
 " Command bindings {{{2
-" Open a shell
-command! Shell ConqueTermSplit zsh
-" Open manpages
-command! -nargs=1 Man ConqueTermSplit man -P "ul | cat -s" <args>
+command! Shell VimShell -popup 
 
 " Powerline Options {{{1
 let g:Powerline_symbols = 'fancy'
@@ -203,9 +205,12 @@ let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1 
 " Set minimum syntax keyword length. 
 let g:neocomplcache_min_syntax_length = 3 
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*' 
 " Force NeoComplCache
 let g:neocomplcache_force_overwrite_completefunc=1
+
+" C-Space for autocomplete
+imap <expr> <C-Space> pumvisible() ? 
+    \ "\<Plug>(neocomplcache_start_unite_quick_match)" : '' 
 
 " Enable omni completion. {{{2
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS 

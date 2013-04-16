@@ -49,3 +49,15 @@
 [submodule ".vim/bundle/minibufexpl"]
 	path = .vim/bundle/minibufexpl
 	url = https://github.com/SeySayux/vim-plugin-minibufexpl
+[submodule ".vim/bundle/vim-css-color"]
+	path = .vim/bundle/vim-css-color
+	url = https://github.com/skammer/vim-css-color.git
+[submodule ".vim/bundle/unite.vim"]
+	path = .vim/bundle/unite.vim
+	url = https://github.com/Shougo/unite.vim
+[submodule ".vim/bundle/vimshell"]
+	path = .vim/bundle/vimshell
+	url = https://github.com/Shougo/vimshell.git
+[submodule ".vim/bundle/vimproc"]
+	path = .vim/bundle/vimproc
+	url = https://github.com/Shougo/vimproc

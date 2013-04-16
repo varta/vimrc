@@ -1,3 +1,5 @@
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+setl shiftwidth=4
+setl tabstop=4
+setl softtabstop=4
+
+setl ut=1000
