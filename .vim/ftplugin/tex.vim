@@ -1,10 +1,10 @@
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
-set iskeyword+=:
-set foldmethod=expr
-set formatoptions+=t "a
-set formatoptions-=l
+setl shiftwidth=2
+setl tabstop=2
+setl softtabstop=2
+setl iskeyword+=:
+setl foldmethod=expr
+setl formatoptions+=t "a
+setl formatoptions-=l
 
 fun! LaTeXFill(number)
   let n = a:number-col('.') - 1
