@@ -115,11 +115,22 @@ let g:LibSylphEmail = 'seysayux@gmail.com'
 " Plugins
 
 " Load Pathogen {{{1 
-let g:pathogen_disabled = []
-
-if g:VimFullConfig
-  call pathogen#infect()
+if has("macunix")
+  let g:pathogen_disabled = []
+else
+  let g:pathogen_disabled = [
+      \ "LaTeX-Box",
+      \ "clang_complete",
+      \ "nenocomplcache-clang_complete",
+      \ "pyclewn",
+      \ "slimv",
+      \ "vim-fugitive",
+      \ "vimproc",
+      \ "vimshell"
+  \ ]
 endif
+
+call pathogen#infect()
 
 " Slimv options {{{1
 let g:lisp_rainbow=1
