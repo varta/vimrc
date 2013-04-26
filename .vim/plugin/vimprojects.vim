@@ -1,14 +1,8 @@
 " VimProjects
 
 fun! FindProject()
-    let l:dir = expand("%:p:h")
-
-    if !isdirectory(l:dir)
-        return ""
-    endif
-
-    return fnamemodify(finddir(".vimproject", l:dir), ":h")
-  endfun
+    return fnamemodify(finddir(".vimproject", ".;"), ":h")
+endfun
 
 fun! LoadProject(path)
     if a:path == ""
