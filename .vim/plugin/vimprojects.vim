@@ -7,16 +7,8 @@ fun! FindProject()
         return ""
     endif
 
-    while l:dir != "/"
-        if isdirectory(l:dir."/.vimproject")
-            return l:dir
-        endif
-
-        let l:dir = fnamemodify(l:dir, ":h")
-    endwhile
-
-    return ""
-endfun
+    return fnamemodify(finddir(".vimproject", l:dir), ":h")
+  endfun
 
 fun! LoadProject(path)
     if a:path == ""
