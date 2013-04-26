@@ -137,6 +137,10 @@ endif
 " Slimv options {{{1
 let g:lisp_rainbow=1
 
+" BufExplorer options {{{1
+nmap <silent> <D-e> :BufExplorer<CR>
+imap <silent> <D-e> <Esc>:BufExplorer<CR>
+
 " MiniBufExplorer options {{{1
 if g:VimFullConfig
   let g:miniBufExplBuffersNeeded=0
