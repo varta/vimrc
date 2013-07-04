@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/vimproc"]
 	path = .vim/bundle/vimproc
 	url = https://github.com/Shougo/vimproc
+[submodule ".vim/bundle/vim-glsl"]
+	path = .vim/bundle/vim-glsl
+	url = https://github.com/SeySayux/vim-glsl.git

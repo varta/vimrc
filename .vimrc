@@ -104,7 +104,17 @@ au BufNewFile,BufRead *.mips set syntax=mips
 
 " Show NFOs in correct codepage {{{1
 au BufNewFile,BufRead *.nfo edit ++enc=cp437
-" }}}
+
+" Delete whitespace in code {{{1
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType c,cpp,java,php,ruby,python,glsl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+"  }}}
 
 " Projects
 
